@@ -13,6 +13,7 @@ connectDB();
 
 
 app.use('/', require('./routes/user'));
+app.use('/recettes', require('./routes/recettes'));
 app.set('view engine', 'ejs');
 app.use(cors());
 
