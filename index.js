@@ -7,13 +7,16 @@ dotenv.config({path: './config/config.env'});
 const mongoose = require('mongoose');
 const connectDB = require('./config/db');
 const cors = require('cors');
-
+const bodyParser = require('body-parser');
 
 connectDB();
 
 
-app.use('/', require('./routes/user'));
-app.use('/recettes', require('./routes/recettes'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended : true}));
+app.use(express.static(__dirname + '/public'));
+app.use('/', require('./routes/recettes'));
+app.use('/login', require('./routes/user'));
 app.set('view engine', 'ejs');
 app.use(cors());
 

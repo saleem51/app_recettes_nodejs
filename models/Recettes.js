@@ -8,7 +8,7 @@ const recetteSchema = mongoose.Schema({
     },
     imageUrl: {
         type: String,
-        required: true
+        required: false
     },
     ingrédients: {
         type: String,
