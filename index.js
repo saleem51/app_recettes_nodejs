@@ -3,9 +3,9 @@ const app = express();
 const port = 5000 || process.env.PORT;
 const dotenv = require('dotenv');
 const path = require('path');
-dotenv.config({path: './config/config.env'});
+dotenv.config({path: './config.env'});
 const mongoose = require('mongoose');
-const connectDB = require('./config/db');
+const connectDB = require('./db');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
