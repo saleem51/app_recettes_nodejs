@@ -1,5 +1,25 @@
-#recette-form{
+#recette-form, #register-form, #login-form{
     display: flex;
    text-align: center;
    justify-content: center;
+}
+
+.center-link{
+    text-align: center;
+}
+
+.center-img{
+    text-align: center;
+}
+
+#menu-nav{
+    margin-left: 60%;
+}
+
+#foot{
+    background-color: blueviolet;
+    color: aliceblue;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
 }

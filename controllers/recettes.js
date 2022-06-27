@@ -20,16 +20,25 @@ const postRecettes = async (req, res) => {
     }
 };
 
-const getRecettes = (req, res) => {
-    let recette;
+const findRecettes = (req, res) => {
      Recette.find()
             .then(recette => res.status(200).send(recette))
-            .catch(error => res.status(400).send(error))
-    
-   res.render('recettes', {recette : recette });
+            .catch(error => res.status(400).send(error));
 }
 
+const showRecettes = (req, res) => {
+    res.render('recettes');
+}
+
+const getFormRecettes = (req, res) => {
+    res.render('postRecettes')
+}
+
+
+
 module.exports = {
-    getRecettes,
+    findRecettes,
     postRecettes,
+    showRecettes,
+    getFormRecettes
 }

@@ -1,9 +1,10 @@
 const express = require('express');
-const { logIn } = require('../controllers/user');
+const { login, registerFunc } = require('../controllers/user');
 const router = express.Router();
 
 
-router.get('/', logIn);
+router.get('/login', login);
+router.get('/register', registerFunc);
 
 
 
