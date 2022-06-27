@@ -6,15 +6,11 @@ const recetteSchema = mongoose.Schema({
         type: String,
         required : true
     },
-    imageUrl: {
-        type: String,
-        required: false
-    },
-    ingrédients: {
+    ingredients: {
         type: String,
         required: true
     },
-    Préparation: {
+    preparation: {
         type: String,
         required: true
     },
@@ -29,4 +25,4 @@ const recetteSchema = mongoose.Schema({
 })
 
 
-module.exports = recetteSchema;
+module.exports = mongoose.model('Recettes',recetteSchema );

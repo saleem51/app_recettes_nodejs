@@ -8,17 +8,18 @@ const mongoose = require('mongoose');
 const connectDB = require('./db');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const ejs = require('ejs');
 
 connectDB();
 
-
-app.use(bodyParser.json());
+app.use(cors());
+app.use(express.json());
 app.use(bodyParser.urlencoded({ extended : true}));
 app.use(express.static(__dirname + '/public'));
 app.use('/', require('./routes/recettes'));
 app.use('/login', require('./routes/user'));
 app.set('view engine', 'ejs');
-app.use(cors());
+
 
 
 app.listen(port, console.log(`Server running on port ${port}`));

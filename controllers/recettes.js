@@ -1,14 +1,32 @@
+const Recette = require('../models/Recettes');
+const ejs = require('ejs');
+
+
+
+const postRecettes = async (req, res) => {
+    const recette = await new Recette ({
+        titre : req.body.titre,
+        ingredients: req.body.ingredients,
+        preparation : req.body.preparation,
+        user: req.body.user
+    });
+    try{
+        const recetteSaved = await recette.save();
+        console.log(recetteSaved);
+        res.send(recetteSaved)
+    } catch (err) {
+        res.status(400).send(err);
+        console.log(err);
+    }
+};
+
 const getRecettes = (req, res) => {
-    res.render('recettes');
-}
-
-const postRecettes = (req, res) => {
-    console.log(req.body.inputUser);
-    console.log(req.body.inputTitle);
-    console.log(req.body.ingredients);
-    console.log(req.body.preparation);
-
-    res.send('Réussi');
+    let recette;
+     Recette.find()
+            .then(recette => res.status(200).send(recette))
+            .catch(error => res.status(400).send(error))
+    
+   res.render('recettes', {recette : recette });
 }
 
 module.exports = {

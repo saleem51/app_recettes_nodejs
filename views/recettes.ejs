@@ -51,17 +51,24 @@
           </div>
         </div>
       </nav>
-      <form id="recette-form" method="POST" action="">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title"></h5>
+          <h6 class="card-subtitle mb-2 text-muted"></h6>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+      <form id="recette-form" method="POST" action="http://localhost:5000/recette/post">
         <fieldset>
           <div class="form-group">
-            <label for="inputTitle" class="form-label mt-4">Titre</label>
-            <input type="text" class="form-control larg" name="inputTitle"id="inputTitle" aria-describedby="titleHelp" placeholder="Titre de la recette">
+            <label for="titre" class="form-label mt-4">Titre</label>
+            <input type="text" class="form-control larg" name="titre" id="titre" aria-describedby="titleHelp" placeholder="Titre de la recette">
             <small id="emailHelp" class="form-text text-muted"></small>
           </div>
           <div class="form-group">
-            <label for="inputUser" class="form-label mt-4">Postée par</label>
-            <input type="text" class="form-control larg" name="inputUser" id="inputUser" aria-describedby="userHelp" placeholder="Auteur">
-            <small id="emailHelp" class="form-text text-muted"></small>
+            <label for="user" class="form-label mt-4">Postée par</label>
+            <input type="text" class="form-control larg" name="user" id="user" aria-describedby="userHelp" placeholder="Auteur">
+            <small id="userHelp" class="form-text text-muted"></small>
           </div>
           <div class="form-group">
             <label for="ingredients" class="form-label mt-4">Ingrédients</label>
@@ -71,14 +78,13 @@
             <label for="preparation" class="form-label mt-4">Prépartion</label>
             <textarea class="form-control larg" name="preparation" id="preparation" rows="7"></textarea>
           </div>
-          <div class="form-group">
+          <!-- <div class="form-group">
             <label for="formImage" class="form-label mt-4">Image</label>
             <input class="form-control larg" type="file" id="formImage">
-          </div>
-          <button formaction="/recette/post"type="submit" id="envoyer" class="btn btn-primary mt-4">Poster</button>
+          </div> -->
+          <button type="submit" id="envoyer" class="btn btn-primary mt-4">Poster</button>
         </fieldset>
       </form>
-
     <script type="text/javascript" src="/js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
