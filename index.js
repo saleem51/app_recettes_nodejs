@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 const connectDB = require('./db');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const flash = require('connect-flash');
 
 
 connectDB();
