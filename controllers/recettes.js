@@ -1,11 +1,13 @@
 const Recette = require('../models/Recettes');
 const ejs = require('ejs');
+let recettes;
 
 
 
 const postRecettes = async (req, res) => {
     const recette = await new Recette ({
         titre : req.body.titre,
+        imageUrl:`${req.protocol}://${req.get('host')}/images/${req.file.filename}`,
         ingredients: req.body.ingredients,
         preparation : req.body.preparation,
         user: req.body.user
@@ -20,16 +22,24 @@ const postRecettes = async (req, res) => {
     }
 };
 
-const findRecettes = (req, res) => {
-     Recette.find()
-            .then(recette => res.status(200).send(recette))
-            .catch(error => res.status(400).send(error));
-}
+// const findRecettes = (req, res) => {
+//     Recette.find()
+//     .then(recette => res.status(200))
+//     .catch(error => res.status(400).send(error));
+// }
 
 const showRecettes = (req, res) => {
-    res.render('recettes');
-}
+    Recette.find()
+    .then(recette => {
+        recettes = recette;
+        res.render('recettes', {
+            recettes : recettes
+        });
+    })
+    .catch(error => res.status(400).send(error));
+  
 
+}
 const getFormRecettes = (req, res) => {
     res.render('postRecettes')
 }
@@ -37,7 +47,7 @@ const getFormRecettes = (req, res) => {
 
 
 module.exports = {
-    findRecettes,
+    // findRecettes,
     postRecettes,
     showRecettes,
     getFormRecettes

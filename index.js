@@ -18,7 +18,17 @@ app.use(bodyParser.urlencoded({ extended : true}));
 app.use(express.static(__dirname + '/public'));
 app.use('/', require('./routes/recettes'));
 app.use('/user', require('./routes/user'));
+app.use('/images', express.static(path.join(__dirname, 'images')));
 app.set('view engine', 'ejs');
+
+//Globals Vars
+// app.use((req, res, next) => {
+//     res.locals.success_msg = req.flash('success_msg');
+//     res.locals.error_msg = req.flash('error_msg');
+//     res.locals.error = req.flash('error');
+//     next();
+//   })
+  
 
 
 

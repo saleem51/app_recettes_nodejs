@@ -6,6 +6,10 @@ const recetteSchema = mongoose.Schema({
         type: String,
         required : true
     },
+    imageUrl: {
+        type: String,
+        required: false
+    },
     ingredients: {
         type: String,
         required: true

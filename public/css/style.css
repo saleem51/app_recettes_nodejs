@@ -1,7 +1,6 @@
 #recette-form, #register-form, #login-form{
-    display: flex;
-   text-align: center;
-   justify-content: center;
+        display: flex;
+        justify-content: center;
 }
 
 .center-link{
@@ -16,10 +15,37 @@
     margin-left: 60%;
 }
 
-#foot{
-    background-color: blueviolet;
-    color: aliceblue;
-    bottom: 0;
+footer {
     position: fixed;
+    bottom: 0;
     width: 100%;
+}
+
+.text-color{
+    color: #FFF;
+}
+
+.contain{
+    margin-top: 8%;
+}
+
+.recette{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+}
+
+.card-size{
+    margin-top: 5%;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.titre-2{
+ text-align: center;
+}
+
+.input-size{
+    width: 350px;
 }

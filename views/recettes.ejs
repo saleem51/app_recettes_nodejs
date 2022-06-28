@@ -1,11 +1,30 @@
 <%- include('./partials/header'); -%>
-      <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">Titre recette</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Postée par </h6>
-          <p class="card-text">recette</p>
-        </div>
+<h2 class="titre-2 mt-4">Les recettes de nos membres</h2>
+<% if(typeof recettes != 'undefined') { %>
+  <% recettes.forEach(function (recette){ %>   
+    <div class="card mb-3 border-primary card-size">
+      <h3 class="card-header center-img"><%= recette.titre %></h3>
+      <div class="card-body center-img">
+        <img src="<%= recette.imageUrl %>" width="250" height="250">
       </div>
+      <h4>Ingrédients :</p>
+      <div class="card-body">
+        <p class="card-text"><%= recette.ingredients %></p>
+      </div>
+      <h4>Préparation :</p>
+      <div class="card-body">
+        <p class="card-text"><%= recette.preparation %></p>
+      </div>
+      <div class="card-body">
+        <a href="#" class="card-link">Voir la recette </a>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title"><%= recette.user %></h5>
+      </div>
+      <div class="card-footer text-muted"><%= recette.date %></div>
+    </div>
+  <% }); %>
+<% } %>
     <script type="text/javascript" src="/js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <%- include('./partials/footer'); -%>
