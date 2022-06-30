@@ -1,3 +1,7 @@
+body {
+  height: 2000px;
+}
+
 #recette-form, #register-form, #login-form{
         display: flex;
         justify-content: center;
@@ -26,7 +30,7 @@ footer {
 }
 
 .contain{
-    margin-top: 8%;
+    margin-top: 1%;
 }
 
 .recette{
