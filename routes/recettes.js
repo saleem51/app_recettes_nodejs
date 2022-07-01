@@ -14,9 +14,9 @@ const multer = require('../middleware/multer-config');
 router.get('/', showRecettes);
 router.get('/recette/post', getFormRecettes);
 router.get('/recette/:id', getOneRecette)
-router.get('/recette/put/:id', getFormPutRecette);
+router.get('/put/recette/:id', getFormPutRecette);
 router.post('/recette/post', multer, postRecettes);
-router.put('/recette/put/:id', multer, modifyRecette);
+router.post('/put/recette/:id', multer, modifyRecette);
 router.post('/delete/recette/:id', deleteOneRecette);
 
 module.exports = router;
