@@ -1,5 +1,5 @@
 body {
-  height: 2000px;
+  height: 3000px;
 }
 
 #recette-form, #register-form, #login-form{
@@ -52,4 +52,9 @@ footer {
 
 .input-size{
     width: 350px;
+}
+
+#flex-div, #flex-div2{
+    display: flex;
+    justify-content: center;
 }

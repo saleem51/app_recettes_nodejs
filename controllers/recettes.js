@@ -1,7 +1,6 @@
 const Recette = require('../models/Recettes');
 let recettes;
 
-
 const postRecettes = async (req, res) => {
     const recette = await new Recette ({
         titre : req.body.titre,
@@ -33,12 +32,6 @@ const modifyRecette =  async (req, res) => {
 
 }
 
-// const findRecettes = (req, res) => {
-//     Recette.find()
-//     .then(recette => res.status(200))
-//     .catch(error => res.status(400).send(error));
-// }
-
 const showRecettes = (req, res) => {
     Recette.find()
     .then(recette => {
@@ -46,9 +39,10 @@ const showRecettes = (req, res) => {
         res.render('recettes', { recettes });
     })
     .catch(error => res.status(400).send(error));
-  
-
 }
+
+
+
 const getFormRecettes = (req, res) => {
     res.render('postRecettes')
 }
@@ -57,12 +51,37 @@ const getFormPutRecette = (req, res) => {
     res.render('putRecettes', { recettes })
 }
 
+const getOneRecette = async (req, res) => {
+    try{
+        const oneRecette = await Recette.findOne({ _id: req.params.id })
+        const getRecette = await oneRecette;
+        res.render('getOneRecette',  { getRecette })
+
+    } catch ( error ) {
+        console.log( error )
+        res.status(400).json( error )
+    }     
+}
+
+const deleteOneRecette  = async (req, res) => {
+    try{ 
+        await Recette.deleteOne({ _id: req.params.id })
+        console.log('Recette supprimée avec succès !')
+        await res.render('recettes');
+    } catch (error) {
+        console.log(error)
+        res.status(400).json({ error })
+    }
+}
+
 
 module.exports = {
-    // findRecettes,
     postRecettes,
     showRecettes,
     getFormRecettes,
     modifyRecette,
-    getFormPutRecette
+    getFormPutRecette,
+    getOneRecette,
+    deleteOneRecette,
+  
 }
