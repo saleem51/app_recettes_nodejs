@@ -1,5 +1,6 @@
 const Recette = require('../models/Recettes');
-let recettes;
+const fs = require('fs');
+
 
 const postRecettes = async (req, res) => {
     const recette = await new Recette ({
@@ -10,9 +11,13 @@ const postRecettes = async (req, res) => {
         user: req.body.user
     });
     try{
+        if (!recette.imageUrl){
+            res.send("Veuillez ajouté une image à votre recette");
+        }
         const recetteSaved = await recette.save();
         console.log(recetteSaved);
         await res.status(200).json({ message : 'Recette ajoutée avec succès !'})
+        console.log('Recette ajoutée avec succès !')
     } catch (err) {
         res.status(400).send(err);
         console.log(err);
@@ -26,9 +31,11 @@ const modifyRecette =  async (req, res) => {
                 imageUrl : `${req.protocol}://${req.get('host')}/images/${req.file.filename}`,
                  _id: req.params.id});
             await res.status(200).json({ message :  'Recette modifié avec une nouvelle image !'});
+            console.log('Recette modifié  avec succès avec nouvelle image !')
         } else {
             await Recette.updateOne({ _id: req.params.id }, { ...req.body,  _id: req.params.id});
             await res.status(200).json({ message : 'Recette modifié sans nouvelle image !'});
+            console.log('Recette modifié  avec succès sans nouvelle image !')
         }
     } catch (err) {
         res.status(400).send(err);
@@ -39,7 +46,7 @@ const modifyRecette =  async (req, res) => {
 const showRecettes = (req, res) => {
     Recette.find()
     .then(recette => {
-        recettes = recette;
+       const recettes = recette;
         res.render('recettes', { recettes });
     })
     .catch(error => res.status(400).send(error));
@@ -70,9 +77,14 @@ const getOneRecette = async (req, res) => {
 
 const deleteOneRecette  = async (req, res) => {
     try{ 
-        await Recette.deleteOne({ _id: req.params.id })
-        console.log('Recette supprimée avec succès !')
-        await res.status(200).json({ message : 'Recette supprimé avec succès !'});
+        const recette = await Recette.findOne({ _id: req.params.id })
+        const recetteImg = recette.imageUrl;
+        const filename = recetteImg.split('/images/')[1];
+        fs.unlink(`images/${filename}`, async () => {
+            await Recette.deleteOne({ _id: req.params.id })
+            console.log('Recette supprimée avec succès !')
+            await res.status(200).json({ message : 'Recette supprimé avec succès !'});
+        });  
     } catch (error) {
         console.log(error)
         res.status(400).json({ error })
@@ -88,7 +100,6 @@ module.exports = {
     getFormPutRecette,
     getOneRecette,
     deleteOneRecette,
-  
 }
 
 

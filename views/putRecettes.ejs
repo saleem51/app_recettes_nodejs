@@ -12,21 +12,21 @@
     <fieldset>  
       <div class="form-group">
         <label for="titre" class="form-label mt-4">Titre </label><span class="danger"> *</span>
-        <input type="text" class="form-control larg" placeholder="<%= oneRecette.titre %>"  name="titre" id="titre" aria-describedby="titleHelp" >
+        <input type="text" class="form-control larg" value="<%= oneRecette.titre %>"  name="titre" id="titre" aria-describedby="titleHelp" required >
         <small id="emailHelp" class="form-text text-muted"></small>
       </div>
       <div class="form-group">
         <label for="user" class="form-label mt-4">Postée par </label><span class="danger"> *</span>
-        <input type="text" class="form-control larg" name="user" id="user" aria-describedby="userHelp" placeholder="<%= oneRecette.user %>">
+        <input type="text" class="form-control larg" name="user" id="user" aria-describedby="userHelp" value="<%= oneRecette.user %>" required>
         <small id="userHelp" class="form-text text-muted"></small>
       </div>
       <div class="form-group">
         <label for="ingredients" class="form-label mt-4">Ingrédients</label><span class="danger"> *</span>
-        <textarea class="form-control larg" name="ingredients" id="ingredients" rows="4" placeholder="<%= oneRecette.ingredients %>"></textarea>
+        <textarea class="form-control larg" name="ingredients" id="ingredients" rows="4"required><%= oneRecette.ingredients %></textarea>
       </div>
       <div class="form-group">
         <label for="preparation" class="form-label mt-4">Prépartion </label><span class="danger"> *</span>
-        <textarea class="form-control larg" name="preparation" id="preparation" rows="7" placeholder="<%= oneRecette.preparation %>"></textarea>
+        <textarea class="form-control larg" name="preparation" id="preparation" rows="7" required><%= oneRecette.preparation %></textarea>
       </div>
       <div class="form-group">
         <label for="image" class="form-label mt-4">Image </label>

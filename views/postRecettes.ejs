@@ -6,25 +6,25 @@
     <fieldset>
       <div class="form-group">
         <label for="titre" class="form-label mt-4">Titre </label><span class="danger"> *</span>
-        <input type="text" class="form-control larg" name="titre" id="titre" aria-describedby="titleHelp" placeholder="Titre de la recette">
+        <input type="text" class="form-control larg" name="titre" id="titre" aria-describedby="titleHelp" placeholder="Titre de la recette" required>
         <small id="emailHelp" class="form-text text-muted"></small>
       </div>
       <div class="form-group">
         <label for="user" class="form-label mt-4">Postée par </label><span class="danger"> *</span>
-        <input type="text" class="form-control larg" name="user" id="user" aria-describedby="userHelp" placeholder="Auteur">
+        <input type="text" class="form-control larg" name="user" id="user" aria-describedby="userHelp" placeholder="Auteur" required>
         <small id="userHelp" class="form-text text-muted"></small>
       </div>
       <div class="form-group">
         <label for="ingredients" class="form-label mt-4">Ingrédients </label><span class="danger"> *</span>
-        <textarea class="form-control larg" name="ingredients" id="ingredients" rows="4" placeholder="Ingrédients"></textarea>
+        <textarea class="form-control larg" name="ingredients" id="ingredients" rows="4" placeholder="Ingrédients" required></textarea>
       </div>
       <div class="form-group">
         <label for="preparation" class="form-label mt-4">Prépartion </label><span class="danger"> *</span>
-        <textarea class="form-control larg" name="preparation" id="preparation" rows="7" placeholder="Ingrédients"></textarea>
+        <textarea class="form-control larg" name="preparation" id="preparation" rows="7" placeholder="Ingrédients" required></textarea>
       </div>
       <div class="form-group">
         <label for="image" class="form-label mt-4">Image </label><span class="danger"> *</span>
-        <input class="form-control larg" type="file" id="image" name="image">
+        <input class="form-control larg" type="file" id="image" name="image" required>
       </div>
       <button type="submit" id="envoyer" class="btn btn-primary mt-4">Poster</button>
     </fieldset>
