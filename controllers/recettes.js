@@ -1,22 +1,26 @@
 const Recette = require('../models/Recettes');
+const mongoose = require('mongoose');
+const schema = mongoose.schema;
+const userSchema = require('../models/User');
+//const userId = userSchema.findOne({ _id: ObjectId})
 const fs = require('fs');
+
+idUser = userSchema.ObjectId;
 
 
 const postRecettes = async (req, res) => {
     const recette = await new Recette ({
+        //userId : {  },
+        //user : {type : pseudo, required: false, ref: userSchema.pseudo},
         titre : req.body.titre,
         imageUrl:`${req.protocol}://${req.get('host')}/images/${req.file.filename}`,
         ingredients: req.body.ingredients,
         preparation : req.body.preparation,
-        user: req.body.user
     });
     try{
-        if (!recette.imageUrl){
-            res.send("Veuillez ajouté une image à votre recette");
-        }
         const recetteSaved = await recette.save();
         console.log(recetteSaved);
-        await res.status(200).json({ message : 'Recette ajoutée avec succès !'})
+        await res.status(201).json({ message : 'Recette ajoutée avec succès !'})
         console.log('Recette ajoutée avec succès !')
     } catch (err) {
         res.status(400).send(err);

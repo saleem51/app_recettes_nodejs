@@ -8,8 +8,10 @@ const mongoose = require('mongoose');
 const connectDB = require('./db');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const flash = require('connect-flash');
-
+//const flash = require('connect-flash');
+const ejs = require('ejs');
+const expressLayouts = require('express-ejs-layouts');
+const session = require('express-session');
 
 connectDB();
 
@@ -20,7 +22,16 @@ app.use(express.static(__dirname + '/public'));
 app.use('/', require('./routes/recettes'));
 app.use('/user', require('./routes/user'));
 app.use('/images', express.static(path.join(__dirname, 'images')));
+app.use(expressLayouts);
 app.set('view engine', 'ejs');
+
+
+//Express session
+app.use(session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
+}));
 
 //Globals Vars
 // app.use((req, res, next) => {

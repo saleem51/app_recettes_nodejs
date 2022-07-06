@@ -36,11 +36,16 @@
           <li class="nav-item">
             <a class="nav-link" href="#">About</a>
           </li>-->
-        </ul> 
-        <form class="d-flex">
+        </ul>
+        <!-- <%// if (!user){ %> -->
+          <form class="d-flex">
             <button type="button" id="register" class="btn-sm btn-secondary me-4"><a href="/user/register">S'inscrire</a></button>
             <button type="button" id="connection" class="btn-sm btn-secondary"><a href="/user/login">Se connecter</a></button>
-        </form>
+          </form>
+       <!-- <%// } %> 
+       <% //if (user) { %>  -->
+        <button type="button" id="connection" class="btn-sm btn-secondary"><a href="/">Se Déconnecter</a></button>
+        <!-- <% //} %> -->
       </div>
     </div>
   </nav>

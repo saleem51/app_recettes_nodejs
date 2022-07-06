@@ -20,8 +20,16 @@ const userSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    imgProfil: {
+    password2: {
         type: String,
         required: true
-    }
+    },
+    // imageUrl: {
+    //     type: String,
+    //     required: false
+    // }
 })
+
+userSchema.plugin(uniqueValid);
+
+module.exports = mongoose.model('User', userSchema);
