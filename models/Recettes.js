@@ -1,11 +1,6 @@
 const mongoose = require('mongoose');
 
 const recetteSchema = mongoose.Schema({
-
-    userID: {
-        type : String,
-        required : false
-    },
     titre: {
         type: String,
         required : true
@@ -22,10 +17,6 @@ const recetteSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    // user: {
-    //     type: String,
-    //     required: true
-    // },
     date: {
         type: Date,
         default : Date.now()

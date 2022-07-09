@@ -46,21 +46,9 @@ const postLogin = async (req, res) => {
     try{
         const mail = await req.body.email
         const userLogged = await User.findOne({email : mail})
-        //const userPass = await User.findOne({ password : req.password})
         const user = await userLogged;
-        // bcrypt.compare(req.body.password, userPass, async () => {
             await res.render('dashboard' , { user })
-            // console.log('Password et hash identiques')
-            // }
-        // })
-        // if(mail !== user.email || user.email === null || undefined) {
-        //     res.send("L'email renseigné n'existe pas !")
-        // } else {      
-       
     } catch ( error ) {
-        // if(mail !== user.email || user.email === null || undefined) {
-        //     res.send("L'email renseigné n'existe pas !")
-        // }
         console.log( error )
         res.status(400).json( error )
     }     

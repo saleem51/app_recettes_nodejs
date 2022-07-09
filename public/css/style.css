@@ -16,11 +16,7 @@
     margin-left: 60%;
 }
 
-footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
+
 
 .text-color{
     color: #FFF;
@@ -72,4 +68,24 @@ footer {
 .btn-link, .btn-link:visited {
     text-decoration : none;
     color: #FFF;
+}
+
+/* Modèle Bootstrap css Footer */
+
+#button-addon1 {
+  color: #FFF;
+}
+
+i {
+  color: #FFF;
+}
+
+.form-control::placeholder {
+  font-size: 0.95rem;
+  color: #aaa;
+  font-style: italic;
+}
+
+.form-control.shadow-0:focus {
+  box-shadow: none;
 }
