@@ -94,3 +94,11 @@ i {
 .form-control.shadow-0:focus {
   box-shadow: none;
 }
+
+
+
+@media  screen and (min-width: 992px) {
+    .btm{
+        height: 200px;
+    }
+}
